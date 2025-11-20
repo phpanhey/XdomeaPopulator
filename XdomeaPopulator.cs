@@ -9,5 +9,13 @@ namespace Populator{
         }
         return template;
       }
+
+      public static string PopulateList(KeyValuePair<string, string>[][] vars,string listTemplate){
+        string res="";
+        foreach (var item in vars){
+          res += Populate(item,listTemplate);
+        }
+        return res;
+      }
     }
 }
