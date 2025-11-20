@@ -1,8 +1,13 @@
 namespace Populator{
-    public class XdomeaPopulator
+    public static class XdomeaPopulator
     {
-     public void sayHello(){
-        Console.WriteLine("hello World");
+      public static string Populate(KeyValuePair<string, string>[] vars, string template){
+        foreach (var item in vars)
+        {
+          var searchString = "${" + item.Key +"}";
+         template = template.Replace(searchString,item.Value);
+        }
+        return template;
       }
     }
 }
