@@ -5,7 +5,7 @@ namespace Populator{
         foreach (var item in vars)
         {
           var searchString = "${" + item.Key +"}";
-         template = template.Replace(searchString,item.Value);
+          template = template.Replace(searchString,item.Value);
         }
         return template;
       }
