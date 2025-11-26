@@ -480,3 +480,6 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
+.env
+script/00000000-0000-0000-0000-000000000000_FVDaten.SGOAblegen.0605.xml
+script/00000000-0000-0000-0000-000000000000_FVDaten.SGOAblegen.0605.zip
