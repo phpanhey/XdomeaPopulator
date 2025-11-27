@@ -4,13 +4,13 @@ from dotenv import load_dotenv
 import os
 
 def main():
-    name = "00000000-0000-0000-0000-000000000000_FVDaten.SGOAblegen.0605"
+    name = "10000000-0000-0000-0000-000000000000_FVDaten.SGOAblegen.0605"
     make_zip(name)
     make_request(name)
 
 
 def make_zip(name):    
-    file_name = "file.txt"
+    file_name = "10000000-0000-0000-0000-000000000000_file.txt"
     with open(file_name, "w") as f:
         f.write("hello world\n")
     
@@ -30,7 +30,6 @@ def make_request(name):
     url = os.getenv("URL")
     mandant_id_key = os.getenv("MANDANTIDKEY")
     mandant_id = os.getenv("MANDANTID")
-
 
     headers = {
         mandant_id_key: mandant_id
