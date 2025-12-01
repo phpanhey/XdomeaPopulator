@@ -30,11 +30,9 @@ string template = """
                     <ns2:ID>e6c47537-0594-4d8c-be53-89b5e84a85f6</ns2:ID>
                 </ns2:Identifikation>
                 <ns2:AllgemeineMetadaten>
-                    <ns2:Betreff>${FIRMA}</ns2:Betreff>
+                    <ns2:Betreff>${AKTE}</ns2:Betreff>
                     <ns2:Kennzeichen>Kenzeichunung</ns2:Kennzeichen>
                     <ns2:Federfuehrung>Federfuehrung</ns2:Federfuehrung>
-                    <ns2:Aktenfuehrung>${FIRMA}</ns2:Aktenfuehrung>
-                    <ns2:Bemerkung>${FIRMA}</ns2:Bemerkung>
                     <ns2:Medium>
                         <code>001</code>
                     </ns2:Medium>
@@ -153,7 +151,7 @@ KeyValuePair<string, string>[][]  listvars =
 
 var xdomeavars = new[]
 {
-    KeyValuePair.Create("FIRMA", "Nice FIRMA GmbH"),
+    KeyValuePair.Create("AKTE", "A und A Ausbildung und Arbeit Plus GmbH"),
     KeyValuePair.Create("ATTACHMENTS", XdomeaPopulator.PopulateList(listvars,listTemplate))
 };
 
