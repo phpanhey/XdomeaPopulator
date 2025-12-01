@@ -1,16 +1,16 @@
 ﻿using Populator;
 
-string template = """
+string template ="""
 <ns2:FVDaten.SGOAblegen.0605 xmlns:ns2="urn:xoev-de:xdomea:schema:3.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="urn:xoev-de:xdomea:xdomea-0605.xsd">
+                             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                             xsi:schemaLocation="urn:xoev-de:xdomea:xdomea-0605.xsd">
     <ns2:Kopf>
         <ns2:ProzessID>e6c47537-0594-4d8c-be53-89b5e84a85f6</ns2:ProzessID>
         <ns2:Nachrichtentyp>
             <code>0605</code>
         </ns2:Nachrichtentyp>
         <ns2:Erstellungszeitpunkt>2025-07-22T11:41:05.9544231+02:00</ns2:Erstellungszeitpunkt>
-        <ns2:Absender />
+        <ns2:Absender/>
         <ns2:Empfaenger>
             <ns2:Taetigkeit>Dinge von A nach B schicken</ns2:Taetigkeit>
         </ns2:Empfaenger>
@@ -22,7 +22,6 @@ string template = """
         <ns2:Stapellaenge>2</ns2:Stapellaenge>
     </ns2:Kopf>
     <ns2:SchriftgutobjektZumAblegen>
-        <!-- abwaertskompatibel mit primaerdokument machen -->
         <ns2:FachverfahrenObjektID>10000000-0000-0000-0000-000000000000_file.txt</ns2:FachverfahrenObjektID>
         <ns2:Schriftgutobjekt>
             <ns2:Akte>
@@ -30,9 +29,11 @@ string template = """
                     <ns2:ID>e6c47537-0594-4d8c-be53-89b5e84a85f6</ns2:ID>
                 </ns2:Identifikation>
                 <ns2:AllgemeineMetadaten>
-                    <ns2:Betreff>${AKTE}</ns2:Betreff>
+                    <ns2:Betreff>AKTE</ns2:Betreff>
                     <ns2:Kennzeichen>Kenzeichunung</ns2:Kennzeichen>
                     <ns2:Federfuehrung>Federfuehrung</ns2:Federfuehrung>
+                    <ns2:Aktenfuehrung>2023</ns2:Aktenfuehrung>
+                    <ns2:Bemerkung>2023</ns2:Bemerkung>
                     <ns2:Medium>
                         <code>001</code>
                     </ns2:Medium>
@@ -48,7 +49,7 @@ string template = """
                             <ns2:ID>e6c47537-0594-4d8c-be53-89b5e84a85f6</ns2:ID>
                         </ns2:Identifikation>
                         <ns2:AllgemeineMetadaten>
-                            <ns2:Betreff>${VORGANG}</ns2:Betreff>
+                            <ns2:Betreff>VORGANG</ns2:Betreff>
                             <ns2:Medium>
                                 <code>001</code>
                             </ns2:Medium>
@@ -59,64 +60,11 @@ string template = """
                                 <ns2:ID>e6c47537-0594-4d8c-be53-89b5e84a85f6</ns2:ID>
                             </ns2:Identifikation>
                             <ns2:AllgemeineMetadaten>
-                                <ns2:Betreff>Dokument</ns2:Betreff>
+                                <ns2:Betreff>DOKUMENT</ns2:Betreff>
                                 <ns2:Medium>
                                     <code>001</code>
                                 </ns2:Medium>
                             </ns2:AllgemeineMetadaten>
-
-                            <ns2:Version>
-                                <ns2:Nummer>1.0</ns2:Nummer>
-                                <ns2:Format>
-                                    <ns2:Name listURI="urn:xoev-de:xdomea:codeliste:dateiformat"
-                                        listVersionID="1.0">
-                                        <code>044</code>
-                                    </ns2:Name>
-                                    <ns2:Version>1.b</ns2:Version>
-                                    <ns2:Primaerdokument>
-                                        <ns2:Dateiname>00005000-0500-0050-0500-000050000000_file1.pdf</ns2:Dateiname>
-                                    </ns2:Primaerdokument>
-                                </ns2:Format>
-                            </ns2:Version>
-
-                            <ns2:Anlage>
-                                <ns2:Identifikation>
-                                    <ns2:ID>e6c47537-0594-4d8c-be53-89b5e84a85f6</ns2:ID>
-                                </ns2:Identifikation>
-                                <ns2:Version>
-                                    <ns2:Nummer>1.0</ns2:Nummer>
-                                    <ns2:Format>
-                                        <ns2:Name listURI="urn:xoev-de:xdomea:codeliste:dateiformat"
-                                            listVersionID="1.0">
-                                            <code>045</code>
-                                        </ns2:Name>
-                                        <ns2:Version>1.0</ns2:Version>
-                                        <ns2:Primaerdokument>
-                                            <ns2:Dateiname>10000000-0000-0000-0000-000000000000_file.txt</ns2:Dateiname>
-                                        </ns2:Primaerdokument>
-                                    </ns2:Format>
-                                </ns2:Version>
-                            </ns2:Anlage>
-
-                            <ns2:Anlage>
-                                <ns2:Identifikation>
-                                    <ns2:ID>e6c47537-0594-4d8c-be53-89b5e84a85f6</ns2:ID>
-                                </ns2:Identifikation>
-                                <ns2:Version>
-                                    <ns2:Nummer>1.0</ns2:Nummer>
-                                    <ns2:Format>
-                                        <ns2:Name listURI="urn:xoev-de:xdomea:codeliste:dateiformat"
-                                            listVersionID="1.0">
-                                            <code>100</code>
-                                        </ns2:Name>
-                                        <ns2:SonstigerName>md</ns2:SonstigerName>
-                                        <ns2:Version>1.0</ns2:Version>
-                                        <ns2:Primaerdokument>
-                                            <ns2:Dateiname>10000000-0000-0000-0000-000000000000_file.txt</ns2:Dateiname>
-                                        </ns2:Primaerdokument>
-                                    </ns2:Format>
-                                </ns2:Version>
-                            </ns2:Anlage>
                         </ns2:Dokument>
                     </ns2:Vorgang>
                 </ns2:Akteninhalt>
@@ -125,7 +73,7 @@ string template = """
         <ns2:Ablageort>VIS API Test</ns2:Ablageort>
     </ns2:SchriftgutobjektZumAblegen>
 </ns2:FVDaten.SGOAblegen.0605>
-""";
+"""; 
 
 var listTemplate = @"
 <Attchment>
