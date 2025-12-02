@@ -44,7 +44,7 @@ string template ="""
                     </ns2:Aktenplaneinheit>
                 </ns2:AllgemeineMetadaten>
                 <ns2:Akteninhalt>
-                    <ns2:Vorgang>
+                    <ns2:Vorgang>                        
                         <ns2:Identifikation>
                             <ns2:ID>e6c47537-0594-4d8c-be53-89b5e84a85f6</ns2:ID>
                         </ns2:Identifikation>
@@ -54,7 +54,6 @@ string template ="""
                                 <code>001</code>
                             </ns2:Medium>
                         </ns2:AllgemeineMetadaten>
-                        <ns2:Aktenbetreff>E</ns2:Aktenbetreff>
                         <ns2:Dokument>
                             <ns2:Identifikation>
                                 <ns2:ID>e6c47537-0594-4d8c-be53-89b5e84a85f6</ns2:ID>
@@ -66,6 +65,31 @@ string template ="""
                                 </ns2:Medium>
                             </ns2:AllgemeineMetadaten>
                         </ns2:Dokument>
+                    <ns2:Teilvorgang>                        
+                        <ns2:Identifikation>
+                            <ns2:ID>e6c47537-0594-4d8c-be53-89b5e84a85f6</ns2:ID>
+                        </ns2:Identifikation>
+                        <ns2:AllgemeineMetadaten>
+                            <ns2:Betreff>TEILVORGANG</ns2:Betreff>
+                            <ns2:Medium>
+                                <code>001</code>
+                            </ns2:Medium>
+                        </ns2:AllgemeineMetadaten>
+                        <ns2:Aktenbetreff>E</ns2:Aktenbetreff>
+                    </ns2:Teilvorgang>
+
+
+
+
+
+
+
+
+
+
+
+
+                        
                     </ns2:Vorgang>
                 </ns2:Akteninhalt>
             </ns2:Akte>
