@@ -1,21 +1,28 @@
-namespace Populator{
-    public static class XdomeaPopulator
+namespace Populator
+{
+  public static class XdomeaPopulator
+  {
+    public static string Populate(Dictionary<string, string> vars, string template)
     {
-      public static string Populate(KeyValuePair<string, string>[] vars, string template){
-        foreach (var item in vars)
-        {
-          var searchString = "${" + item.Key +"}";
-          template = template.Replace(searchString,item.Value);
-        }
-        return template;
+      foreach (var item in vars)
+      {
+        var searchString = "${" + item.Key + "}";
+        template = template.Replace(searchString, item.Value);
       }
-
-      public static string PopulateList(KeyValuePair<string, string>[][] vars,string listTemplate){
-        string res="";
-        foreach (var item in vars){
-          res += Populate(item,listTemplate);
-        }
-        return res;
-      }
+      return template;
     }
+
+
+    public static string PopulateList(
+    IEnumerable<Dictionary<string, string>> vars,
+    string listTemplate)
+    {
+      var res = "";
+      foreach (var dict in vars)
+      {
+        res += Populate(dict, listTemplate);
+      }
+      return res;
+    }
+  }
 }

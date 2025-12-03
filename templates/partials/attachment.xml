@@ -1,48 +1,19 @@
-<ns2:Dokument>
+<ns2:Anlage>
     <ns2:Identifikation>
-        <ns2:ID>e6c47537-0594-4d8c-be53-89b5e84a85f6</ns2:ID>
+        <ns2:ID>${ATTACHMENT_ID}</ns2:ID>
     </ns2:Identifikation>
-    <ns2:AllgemeineMetadaten>
-        <ns2:Betreff>Dokument</ns2:Betreff>
-        <ns2:Medium>
-            <code>001</code>
-        </ns2:Medium>
-    </ns2:AllgemeineMetadaten>
-    <ns2:Anlage>
-        <ns2:Identifikation>
-            <ns2:ID>e6c47537-0594-4d8c-be53-89b5e84a85f6</ns2:ID>
-        </ns2:Identifikation>
-        <ns2:Version>
-            <ns2:Nummer>1.0</ns2:Nummer>
-            <ns2:Format>
-                <ns2:Name listURI="urn:xoev-de:xdomea:codeliste:dateiformat"
+    <ns2:Version>
+        <ns2:Nummer>1.0</ns2:Nummer>
+        <ns2:Format>
+            <ns2:Name listURI="urn:xoev-de:xdomea:codeliste:dateiformat"
                                                       listVersionID="1.0">
-                    <code>045</code>
-                </ns2:Name>
-                <ns2:Version>1.0</ns2:Version>
-                <ns2:Primaerdokument>
-                    <ns2:Dateiname>10000000-0000-0000-0000-000000000000_file.txt</ns2:Dateiname>
-                </ns2:Primaerdokument>
-            </ns2:Format>
-        </ns2:Version>
-    </ns2:Anlage>
-    <ns2:Anlage>
-        <ns2:Identifikation>
-            <ns2:ID>e6c47537-0594-4d8c-be53-89b5e84a85f6</ns2:ID>
-        </ns2:Identifikation>
-        <ns2:Version>
-            <ns2:Nummer>1.0</ns2:Nummer>
-            <ns2:Format>
-                <ns2:Name listURI="urn:xoev-de:xdomea:codeliste:dateiformat"
-                                                      listVersionID="1.0">
-                    <code>100</code>
-                </ns2:Name>
-                <ns2:SonstigerName>md</ns2:SonstigerName>
-                <ns2:Version>1.0</ns2:Version>
-                <ns2:Primaerdokument>
-                    <ns2:Dateiname>10000000-0000-0000-0000-000000000000_file.txt</ns2:Dateiname>
-                </ns2:Primaerdokument>
-            </ns2:Format>
-        </ns2:Version>
-    </ns2:Anlage>
-</ns2:Dokument>
+                <code>100</code>
+            </ns2:Name>
+            <ns2:SonstigerName>${ATTACHMENT_EXTENSION}</ns2:SonstigerName>
+            <ns2:Version>1.0</ns2:Version>
+            <ns2:Primaerdokument>
+                <ns2:Dateiname>${ATTACHMENT_FILENAME}</ns2:Dateiname>
+            </ns2:Primaerdokument>
+        </ns2:Format>
+    </ns2:Version>
+</ns2:Anlage>

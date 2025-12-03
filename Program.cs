@@ -7,44 +7,38 @@ string baseTemplate = File.ReadAllText(Path.Combine(AppContext.BaseDirectory, "t
 string attachmentTemplate = File.ReadAllText(Path.Combine(AppContext.BaseDirectory, "templates/partials/attachment.xml"));
 string documentTemplate = File.ReadAllText(Path.Combine(AppContext.BaseDirectory, "templates/partials/document.xml"));
 
-// KeyValuePair<string, string>[][] listvars =
-// {
-//     new KeyValuePair<string, string>[]
-//     {
-//         new("NAME", "Attachment1"),
-//         new("FILE", "attachment1.txt")
-//     },
-//     new KeyValuePair<string, string>[]
-//     {
-//         new("NAME", "attachment2"),
-//         new("FILE", "attachment2.txt")
-//     },
-// };
-
-
-KeyValuePair<string, string>[][] listvars = Array.Empty<KeyValuePair<string, string>[]>();
-
-
-var xdomeavars = new[]
-{
-    KeyValuePair.Create("AKTE", "A und A Ausbildung und Arbeit Plus GmbH"),
-    KeyValuePair.Create("VORGANG", "2025 A und A Ausbildung und Arbeit Plus GmbH"),
-    KeyValuePair.Create("TEILVORGANG_WIEDERSPRUCH", "Wiederspruch"),
-    //KeyValuePair.Create("DOKUMENTE_WIEDERSPRUCH", XdomeaPopulator.PopulateList(listvars,attachmentTemplate))
-    KeyValuePair.Create("DOKUMENTE_WIEDERSPRUCH", attachmentTemplate)
-};
-
-var populated = XdomeaPopulator.Populate(xdomeavars, baseTemplate);
+var populatedBase = XdomeaPopulator.Populate(
+    new Dictionary<string, string>
+    {
+        ["AKTE"] = "A und A Ausbildung und Arbeit Plus GmbH",
+        ["VORGANG"] = "2025 A und A Ausbildung und Arbeit Plus GmbH",
+        ["TEILVORGANG_WIEDERSPRUCH"] = "Wiederspruch",
+        ["DOKUMENTE_WIEDERSPRUCH"] = XdomeaPopulator.Populate(
+    new Dictionary<string, string>
+    {
+        ["DOCUMENT_ID"] = Guid.NewGuid().ToString(),
+        ["DOCUMENT_NAME"] = "jahr_mm_tt:Wiederspruch Firma",
+        ["ATTACHMENTS"] = XdomeaPopulator.PopulateList(
+    new List<Dictionary<string, string>>
+    {
+        new() { ["ATTACHMENT_ID"] = Guid.NewGuid().ToString(), ["ATTACHMENT_EXTENSION"] = "txt", ["ATTACHMENT_FILENAME"] = "10000000-0000-0000-0000-000000000000_file.txt" },
+        new() { ["ATTACHMENT_ID"] = Guid.NewGuid().ToString(), ["ATTACHMENT_EXTENSION"] = "txt", ["ATTACHMENT_FILENAME"] = "10000000-0000-0000-0000-000000000000_file.txt" }
+    },
+    attachmentTemplate
+)
+    },
+    documentTemplate
+)
+    },
+    baseTemplate
+);
 
 string xsdPath = Path.Combine(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "xsd"), "xdomea.xsd");
 
-var isValid = IsValid(populated, xsdPath);
+var isValid = IsValid(populatedBase, xsdPath);
 
 Console.WriteLine($"XML is valid: {isValid}");
-File.WriteAllText("output.xml", populated);
-
-
-
+File.WriteAllText("output.xml", populatedBase);
 
 /**
  * Validates an XML string against an XSD schema located at xsdPath.
@@ -52,11 +46,11 @@ File.WriteAllText("output.xml", populated);
 
 bool IsValid(string xml, string xsdPath)
 {
-    bool isValid = true;    
+    bool isValid = true;
     var schemaSet = new XmlSchemaSet
     {
-        XmlResolver = new XmlUrlResolver() 
-    };    
+        XmlResolver = new XmlUrlResolver()
+    };
     var xsdSettings = new XmlReaderSettings
     {
         XmlResolver = new XmlUrlResolver()
@@ -64,9 +58,9 @@ bool IsValid(string xml, string xsdPath)
 
     using (var xsdReader = XmlReader.Create(xsdPath, xsdSettings))
     {
-        schemaSet.Add(null, xsdReader); 
+        schemaSet.Add(null, xsdReader);
     }
-    
+
     schemaSet.Compile();
 
     var settings = new XmlReaderSettings
@@ -81,7 +75,7 @@ bool IsValid(string xml, string xsdPath)
     {
         isValid = false;
         Console.WriteLine($"{e.Severity}: {e.Message}");
-    };    
+    };
     using var stringReader = new StringReader(xml);
     using var xmlReader = XmlReader.Create(stringReader, settings);
     while (xmlReader.Read()) { }

@@ -1,0 +1,12 @@
+<ns2:Dokument>
+    <ns2:Identifikation>
+        <ns2:ID>${DOCUMENT_ID}</ns2:ID>
+    </ns2:Identifikation>
+    <ns2:AllgemeineMetadaten>
+        <ns2:Betreff>${DOCUMENT_NAME}</ns2:Betreff>
+        <ns2:Medium>
+            <code>001</code>
+        </ns2:Medium>
+    </ns2:AllgemeineMetadaten>
+    ${ATTACHMENTS}
+</ns2:Dokument>
