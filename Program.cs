@@ -2,10 +2,10 @@
 using System.Xml.Schema;
 using Populator;
 
-// load template
-string template = File.ReadAllText(Path.Combine(AppContext.BaseDirectory, "template.xml"));
-
-var attachmentTemplate = File.ReadAllText(Path.Combine(AppContext.BaseDirectory, "attachment_template.xml"));
+// load templates
+string baseTemplate = File.ReadAllText(Path.Combine(AppContext.BaseDirectory, "templates/base.xml"));
+string attachmentTemplate = File.ReadAllText(Path.Combine(AppContext.BaseDirectory, "templates/partials/attachment.xml"));
+string documentTemplate = File.ReadAllText(Path.Combine(AppContext.BaseDirectory, "templates/partials/document.xml"));
 
 // KeyValuePair<string, string>[][] listvars =
 // {
@@ -34,7 +34,7 @@ var xdomeavars = new[]
     KeyValuePair.Create("DOKUMENTE_WIEDERSPRUCH", attachmentTemplate)
 };
 
-var populated = XdomeaPopulator.Populate(xdomeavars, template);
+var populated = XdomeaPopulator.Populate(xdomeavars, baseTemplate);
 
 string xsdPath = Path.Combine(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "xsd"), "xdomea.xsd");
 
