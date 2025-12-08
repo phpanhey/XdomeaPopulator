@@ -3,35 +3,34 @@
                              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                              xsi:schemaLocation="urn:xoev-de:xdomea:xdomea-0605.xsd">
     <ns2:Kopf>
-        <ns2:ProzessID>e6c47537-0594-4d8c-be53-89b5e84a85f6</ns2:ProzessID>
+        <ns2:ProzessID>${PROZESS_ID}</ns2:ProzessID>
         <ns2:Nachrichtentyp>
             <code>0605</code>
         </ns2:Nachrichtentyp>
-        <ns2:Erstellungszeitpunkt>2025-07-22T11:41:05.9544231+02:00</ns2:Erstellungszeitpunkt>
+        <ns2:Erstellungszeitpunkt>${ERSTELLUNGS_ZEITPUNKT}</ns2:Erstellungszeitpunkt>
         <ns2:Absender/>
         <ns2:Empfaenger>
-            <ns2:Taetigkeit>Dinge von A nach B schicken</ns2:Taetigkeit>
+            <ns2:Taetigkeit>${TAETIGKEIT}</ns2:Taetigkeit>
         </ns2:Empfaenger>
-        <ns2:Empfangsbestaetigung>true</ns2:Empfangsbestaetigung>
-        <ns2:Importbestaetigung>true</ns2:Importbestaetigung>
-        <ns2:Erstellerkennung>VIC-API</ns2:Erstellerkennung>
-        <ns2:ErstellerRolle>VIC-API</ns2:ErstellerRolle>
+        <ns2:Empfangsbestaetigung>${EMPFANGS_BESTAETIGUNG}</ns2:Empfangsbestaetigung>
+        <ns2:Importbestaetigung>${IMPORT_BESTAETIGUNG}</ns2:Importbestaetigung>
+        <ns2:Erstellerkennung>${ERSTELLER_KENNUNG}</ns2:Erstellerkennung>
+        <ns2:ErstellerRolle>${CREATOR_ROLE}</ns2:ErstellerRolle>
         <ns2:Stapel>true</ns2:Stapel>
-        <ns2:Stapellaenge>2</ns2:Stapellaenge>
     </ns2:Kopf>
     <ns2:SchriftgutobjektZumAblegen>
-        <ns2:FachverfahrenObjektID>10000000-0000-0000-0000-000000000000_file.txt</ns2:FachverfahrenObjektID>
+        <ns2:FachverfahrenObjektID>${FACHVERFAHREN_OBJEKT_ID}</ns2:FachverfahrenObjektID>
         <ns2:Schriftgutobjekt>
             <ns2:Akte>
                 <ns2:Identifikation>
-                    <ns2:ID>e6c47537-0594-4d8c-be53-89b5e84a85f6</ns2:ID>
+                    <ns2:ID>${AKTE_ID}</ns2:ID>
                 </ns2:Identifikation>
                 <ns2:AllgemeineMetadaten>
-                    <ns2:Betreff>${AKTE}</ns2:Betreff>
+                    <ns2:Betreff>${AKTE_BETREFF}</ns2:Betreff>
                     <ns2:Kennzeichen>Kenzeichunung</ns2:Kennzeichen>
-                    <ns2:Federfuehrung>Federfuehrung</ns2:Federfuehrung>
-                    <ns2:Aktenfuehrung>2023</ns2:Aktenfuehrung>
-                    <ns2:Bemerkung>2023</ns2:Bemerkung>
+                    <ns2:Federfuehrung>${AKTE_FERDERFUEHRUNG}</ns2:Federfuehrung>
+                    <ns2:Aktenfuehrung>${AKTE_AKTENFUEHRUNG}</ns2:Aktenfuehrung>
+                    <ns2:Bemerkung>${AKTE_BEMERKUNG}</ns2:Bemerkung>
                     <ns2:Medium>
                         <code>001</code>
                     </ns2:Medium>

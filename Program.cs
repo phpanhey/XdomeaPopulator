@@ -10,7 +10,19 @@ var documentTemplate = File.ReadAllText(Path.Combine(AppContext.BaseDirectory, "
 var populatedBase = XdomeaPopulator.Populate(
     new Dictionary<string, string>
     {
-        ["AKTE"] = "A und A Ausbildung und Arbeit Plus GmbH",
+        ["PROZESS_ID"] = Guid.NewGuid().ToString(),
+        ["ERSTELLUNGS_ZEITPUNKT"] = DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ"),
+        ["TAETIGKEIT"] = "Dinge Verakten",
+        ["EMPFANGS_BESTAETIGUNG"] = "true",
+        ["IMPORT_BESTAETIGUNG"] = "true",
+        ["ERSTELLER_KENNUNG"] = "Match",
+        ["ERSTELLER_ROLLE"] = "MATCH ROLE",
+        ["FACHVERFAHREN_OBJEKT_ID"] = Guid.NewGuid().ToString(),
+        ["AKTE_ID"]= Guid.NewGuid().ToString(),
+        ["AKTE_BETREFF"] = "A und A Ausbildung und Arbeit Plus GmbH",
+        ["AKTE_FERDERFUEHRUNG"] ="Bundesagentur für Arbeit",
+        ["AKTE_AKTENFUEHRUNG"] = "Landesagentur für Arbeit Bayern",
+        ["AKTE_BEMERKUNG"] = "Automatisch erzeugte Akte für Testzwecke",
         ["VORGANG"] = "2025 A und A Ausbildung und Arbeit Plus GmbH",
         ["TEILVORGANG_WIEDERSPRUCH"] = "Wiederspruch",
         ["TEILVORGANG_KLAGEVERFAHREN"] = "Klageverfahren",
