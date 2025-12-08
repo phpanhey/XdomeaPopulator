@@ -62,7 +62,7 @@
                                     <code>001</code>
                                 </ns2:Medium>
                             </ns2:AllgemeineMetadaten>
-                            ${DOKUMENTE_WIEDERSPRUCH}
+                            ${DOKUMENT_WIEDERSPRUCH}
                         </ns2:Teilvorgang>
                     </ns2:Vorgang>
                 </ns2:Akteninhalt>
