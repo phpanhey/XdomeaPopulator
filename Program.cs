@@ -23,10 +23,16 @@ var populatedBase = XdomeaPopulator.Populate(
         ["AKTE_FERDERFUEHRUNG"] ="Bundesagentur für Arbeit",
         ["AKTE_AKTENFUEHRUNG"] = "Landesagentur für Arbeit Bayern",
         ["AKTE_BEMERKUNG"] = "Automatisch erzeugte Akte für Testzwecke",
+        ["APLE_KEY"] = "123456789",
+        ["VORGANG_ID"] = Guid.NewGuid().ToString(),
         ["VORGANG"] = "2025 A und A Ausbildung und Arbeit Plus GmbH",
+        ["TEILVORGANG_WIEDERSPRUCH_ID"] = Guid.NewGuid().ToString(),
         ["TEILVORGANG_WIEDERSPRUCH"] = "Wiederspruch",
+        ["TEILVORGANG_KLAGEVERFAHREN_ID"] = Guid.NewGuid().ToString(),
         ["TEILVORGANG_KLAGEVERFAHREN"] = "Klageverfahren",
+        ["TEILVORGANG_ORDNUNGSWIEDRIGKEIT_ID"] = Guid.NewGuid().ToString(),
         ["TEILVORGANG_ORDNUNGSWIEDRIGKEIT"] = "Ordnungswidrigkeit",
+        ["ABLAGEORT"] = "VIS API Test",
         ["DOKUMENT_WIEDERSPRUCH"] = XdomeaPopulator.Populate(
             new Dictionary<string, string>
             {
