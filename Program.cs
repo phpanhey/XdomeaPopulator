@@ -13,22 +13,128 @@ var populatedBase = XdomeaPopulator.Populate(
         ["AKTE"] = "A und A Ausbildung und Arbeit Plus GmbH",
         ["VORGANG"] = "2025 A und A Ausbildung und Arbeit Plus GmbH",
         ["TEILVORGANG_WIEDERSPRUCH"] = "Wiederspruch",
+        ["TEILVORGANG_KLAGEVERFAHREN"] = "Klageverfahren",
+        ["TEILVORGANG_ORDNUNGSWIEDRIGKEIT"] = "Ordnungswidrigkeit",
         ["DOKUMENT_WIEDERSPRUCH"] = XdomeaPopulator.Populate(
-    new Dictionary<string, string>
-    {
-        ["DOCUMENT_ID"] = Guid.NewGuid().ToString(),
-        ["DOCUMENT_NAME"] = "jahr_mm_tt:Wiederspruch Firma",
-        ["ATTACHMENTS"] = XdomeaPopulator.PopulateList(
-    new List<Dictionary<string, string>>
-    {
-        new() { ["ATTACHMENT_ID"] = Guid.NewGuid().ToString(), ["ATTACHMENT_EXTENSION"] = "txt", ["ATTACHMENT_FILENAME"] = "10000000-0000-0000-0000-000000000000_file.txt" },
-        new() { ["ATTACHMENT_ID"] = Guid.NewGuid().ToString(), ["ATTACHMENT_EXTENSION"] = "txt", ["ATTACHMENT_FILENAME"] = "10000000-0000-0000-0000-000000000000_file.txt" }
-    },
-    attachmentTemplate
-)
-    },
-    documentTemplate
-)
+            new Dictionary<string, string>
+            {
+                ["DOCUMENT_ID"] = Guid.NewGuid().ToString(),
+                ["DOCUMENT_NAME"] = "jahr_mm_tt:Wiederspruch Firma",
+                ["ATTACHMENTS"] = XdomeaPopulator.PopulateList(
+                    new List<Dictionary<string, string>>
+                    {
+                        new()
+                        {
+                            ["ATTACHMENT_ID"] = Guid.NewGuid().ToString(), ["ATTACHMENT_EXTENSION"] = "txt",
+                            ["ATTACHMENT_FILENAME"] = "10000000-0000-0000-0000-000000000000_file.txt"
+                        },
+                        new()
+                        {
+                            ["ATTACHMENT_ID"] = Guid.NewGuid().ToString(), ["ATTACHMENT_EXTENSION"] = "txt",
+                            ["ATTACHMENT_FILENAME"] = "10000000-0000-0000-0000-000000000000_file.txt"
+                        }
+                    },
+                    attachmentTemplate
+                )
+            },
+            documentTemplate
+        ),
+        ["DOKUMENT_KLAGEVERFAHREN"] = XdomeaPopulator.Populate(
+            new Dictionary<string, string>
+            {
+                ["DOCUMENT_ID"] = Guid.NewGuid().ToString(),
+                ["DOCUMENT_NAME"] = "jahr_mm_tt:Klageverfahren Firma",
+                ["ATTACHMENTS"] = XdomeaPopulator.PopulateList(
+                    new List<Dictionary<string, string>>
+                    {
+                        new()
+                        {
+                            ["ATTACHMENT_ID"] = Guid.NewGuid().ToString(), ["ATTACHMENT_EXTENSION"] = "txt",
+                            ["ATTACHMENT_FILENAME"] = "10000000-0000-0000-0000-000000000000_file.txt"
+                        },
+                        new()
+                        {
+                            ["ATTACHMENT_ID"] = Guid.NewGuid().ToString(), ["ATTACHMENT_EXTENSION"] = "txt",
+                            ["ATTACHMENT_FILENAME"] = "10000000-0000-0000-0000-000000000000_file.txt"
+                        }
+                    },
+                    attachmentTemplate
+                )
+            },
+            documentTemplate
+        ),
+        ["DOKUMENT_ORDNUNGSWIEDRIGKEIT"] = XdomeaPopulator.Populate(
+            new Dictionary<string, string>
+            {
+                ["DOCUMENT_ID"] = Guid.NewGuid().ToString(),
+                ["DOCUMENT_NAME"] = "jahr_mm_tt:Ordnungswiedrigkeit  Firma",
+                ["ATTACHMENTS"] = XdomeaPopulator.PopulateList(
+                    new List<Dictionary<string, string>>
+                    {
+                        new()
+                        {
+                            ["ATTACHMENT_ID"] = Guid.NewGuid().ToString(), ["ATTACHMENT_EXTENSION"] = "txt",
+                            ["ATTACHMENT_FILENAME"] = "10000000-0000-0000-0000-000000000000_file.txt"
+                        },
+                        new()
+                        {
+                            ["ATTACHMENT_ID"] = Guid.NewGuid().ToString(), ["ATTACHMENT_EXTENSION"] = "txt",
+                            ["ATTACHMENT_FILENAME"] = "10000000-0000-0000-0000-000000000000_file.txt"
+                        }
+                    },
+                    attachmentTemplate
+                )
+            },
+            documentTemplate
+        ),
+        ["DOKUMENT_MELDUNG"] = XdomeaPopulator.Populate(
+            new Dictionary<string, string>
+            {
+                ["DOCUMENT_ID"] = Guid.NewGuid().ToString(),
+                ["DOCUMENT_NAME"] = "jahr_mm_tt:Meldung Firma",
+                ["ATTACHMENTS"] = XdomeaPopulator.PopulateList(
+                    new List<Dictionary<string, string>>
+                    {
+                        new()
+                        {
+                            ["ATTACHMENT_ID"] = Guid.NewGuid().ToString(), ["ATTACHMENT_EXTENSION"] = "txt",
+                            ["ATTACHMENT_FILENAME"] = "10000000-0000-0000-0000-000000000000_file.txt"
+                        },
+                        new()
+                        {
+                            ["ATTACHMENT_ID"] = Guid.NewGuid().ToString(), ["ATTACHMENT_EXTENSION"] = "txt",
+                            ["ATTACHMENT_FILENAME"] = "10000000-0000-0000-0000-000000000000_file.txt"
+                        }
+                    },
+                    attachmentTemplate
+                )
+            },
+            documentTemplate
+        ),
+        ["DOKUMENT_BESCHEID"] = XdomeaPopulator.Populate(
+            new Dictionary<string, string>
+            {
+                ["DOCUMENT_ID"] = Guid.NewGuid().ToString(),
+                ["DOCUMENT_NAME"] = "jahr_mm_tt:Bescheid Firma",
+                ["ATTACHMENTS"] = XdomeaPopulator.PopulateList(
+                    new List<Dictionary<string, string>>
+                    {
+                        new()
+                        {
+                            ["ATTACHMENT_ID"] = Guid.NewGuid().ToString(), ["ATTACHMENT_EXTENSION"] = "txt",
+                            ["ATTACHMENT_FILENAME"] = "10000000-0000-0000-0000-000000000000_file.txt"
+                        },
+                        new()
+                        {
+                            ["ATTACHMENT_ID"] = Guid.NewGuid().ToString(), ["ATTACHMENT_EXTENSION"] = "txt",
+                            ["ATTACHMENT_FILENAME"] = "10000000-0000-0000-0000-000000000000_file.txt"
+                        }
+                    },
+                    attachmentTemplate
+                )
+            },
+            documentTemplate
+        )
     },
     baseTemplate
 );
@@ -79,6 +185,9 @@ bool IsValid(string xml, string xsdPath)
     };
     using var stringReader = new StringReader(xml);
     using var xmlReader = XmlReader.Create(stringReader, settings);
-    while (xmlReader.Read()) { }
+    while (xmlReader.Read())
+    {
+    }
+
     return isValid;
 }

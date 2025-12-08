@@ -8,7 +8,7 @@
             <code>0605</code>
         </ns2:Nachrichtentyp>
         <ns2:Erstellungszeitpunkt>2025-07-22T11:41:05.9544231+02:00</ns2:Erstellungszeitpunkt>
-        <ns2:Absender />
+        <ns2:Absender/>
         <ns2:Empfaenger>
             <ns2:Taetigkeit>Dinge von A nach B schicken</ns2:Taetigkeit>
         </ns2:Empfaenger>
@@ -63,6 +63,30 @@
                                 </ns2:Medium>
                             </ns2:AllgemeineMetadaten>
                             ${DOKUMENT_WIEDERSPRUCH}
+                        </ns2:Teilvorgang>
+                        <ns2:Teilvorgang>
+                            <ns2:Identifikation>
+                                <ns2:ID>e6c47537-0594-4d8c-be53-89b5e84a85f6</ns2:ID>
+                            </ns2:Identifikation>
+                            <ns2:AllgemeineMetadaten>
+                                <ns2:Betreff>${TEILVORGANG_KLAGEVERFAHREN}</ns2:Betreff>
+                                <ns2:Medium>
+                                    <code>001</code>
+                                </ns2:Medium>
+                            </ns2:AllgemeineMetadaten>
+                            ${DOKUMENT_KLAGEVERFAHREN}
+                        </ns2:Teilvorgang>
+                        <ns2:Teilvorgang>
+                            <ns2:Identifikation>
+                                <ns2:ID>e6c47537-0594-4d8c-be53-89b5e84a85f6</ns2:ID>
+                            </ns2:Identifikation>
+                            <ns2:AllgemeineMetadaten>
+                                <ns2:Betreff>${TEILVORGANG_ORDNUNGSWIEDRIGKEIT}</ns2:Betreff>
+                                <ns2:Medium>
+                                    <code>001</code>
+                                </ns2:Medium>
+                            </ns2:AllgemeineMetadaten>
+                            ${DOKUMENT_ORDNUNGSWIEDRIGKEIT}
                         </ns2:Teilvorgang>
                     </ns2:Vorgang>
                 </ns2:Akteninhalt>
