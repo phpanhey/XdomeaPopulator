@@ -3,9 +3,9 @@ using System.Xml.Schema;
 using Populator;
 
 // load templates
-string baseTemplate = File.ReadAllText(Path.Combine(AppContext.BaseDirectory, "templates/base.xml"));
-string attachmentTemplate = File.ReadAllText(Path.Combine(AppContext.BaseDirectory, "templates/partials/attachment.xml"));
-string documentTemplate = File.ReadAllText(Path.Combine(AppContext.BaseDirectory, "templates/partials/document.xml"));
+var baseTemplate = File.ReadAllText(Path.Combine(AppContext.BaseDirectory, "templates/base.xml"));
+var attachmentTemplate = File.ReadAllText(Path.Combine(AppContext.BaseDirectory, "templates/partials/attachment.xml"));
+var documentTemplate = File.ReadAllText(Path.Combine(AppContext.BaseDirectory, "templates/partials/document.xml"));
 
 var populatedBase = XdomeaPopulator.Populate(
     new Dictionary<string, string>
@@ -13,7 +13,7 @@ var populatedBase = XdomeaPopulator.Populate(
         ["AKTE"] = "A und A Ausbildung und Arbeit Plus GmbH",
         ["VORGANG"] = "2025 A und A Ausbildung und Arbeit Plus GmbH",
         ["TEILVORGANG_WIEDERSPRUCH"] = "Wiederspruch",
-        ["DOKUMENTE_WIEDERSPRUCH"] = XdomeaPopulator.Populate(
+        ["DOKUMENT_WIEDERSPRUCH"] = XdomeaPopulator.Populate(
     new Dictionary<string, string>
     {
         ["DOCUMENT_ID"] = Guid.NewGuid().ToString(),
@@ -33,12 +33,13 @@ var populatedBase = XdomeaPopulator.Populate(
     baseTemplate
 );
 
-string xsdPath = Path.Combine(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "xsd"), "xdomea.xsd");
+var xsdPath = Path.Combine(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "xsd"), "xdomea.xsd");
 
 var isValid = IsValid(populatedBase, xsdPath);
 
 Console.WriteLine($"XML is valid: {isValid}");
 File.WriteAllText("output.xml", populatedBase);
+return;
 
 /**
  * Validates an XML string against an XSD schema located at xsdPath.
@@ -46,7 +47,7 @@ File.WriteAllText("output.xml", populatedBase);
 
 bool IsValid(string xml, string xsdPath)
 {
-    bool isValid = true;
+    var isValid = true;
     var schemaSet = new XmlSchemaSet
     {
         XmlResolver = new XmlUrlResolver()
